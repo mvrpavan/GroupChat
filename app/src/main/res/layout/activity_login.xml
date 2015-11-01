@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity"
+    android:id="@+id/relativelayoutLogin">
+
+    <TextView android:text="Login"
+        android:id="@+id/tvLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLogin"
+        android:layout_marginTop="20dp"
+        android:hint="Username"
+        android:autoText="false"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:inputType="textPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_marginTop="20dp"
+        android:hint="Password"/>
+
+    <Button
+        android:text="Login"
+        android:id="@+id/btnLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="20dp"
+        android:width="150dp"
+        android:height="30dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="OR"
+        android:id="@+id/tvOr"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:text="Register"
+        android:id="@+id/btnRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOr"
+        android:layout_marginTop="10dp"
+        android:width="150dp"
+        android:height="30dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"/>
+    <RelativeLayout
+        style="@style/GenericProgressBackground"
+        android:id="@+id/loadingPanel"
+        android:visibility="gone">
+        <ProgressBar
+            style="@style/GenericProgressIndicator"/>
+    </RelativeLayout>
+</RelativeLayout>
