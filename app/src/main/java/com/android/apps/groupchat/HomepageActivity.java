@@ -1,5 +1,6 @@
 package com.android.apps.groupchat;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,7 +33,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomepageActivity extends AppCompatActivity {
+public class HomepageActivity extends Activity {
 
     ListView listViewMessages;
     MessagesAdapter objMessagesAdapter;

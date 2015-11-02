@@ -1,5 +1,6 @@
 package com.android.apps.groupchat;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-public class SendMessageActivity extends AppCompatActivity {
+public class SendMessageActivity extends Activity {
 
     EditText editTextMessage;
     Button btnSendMessage, btnCancel;

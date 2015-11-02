@@ -1,5 +1,6 @@
 package com.android.apps.groupchat;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class MessageDetailsActivity extends AppCompatActivity {
+public class MessageDetailsActivity extends Activity {
 
     TextView tvMessageDetails;
     Button btnOKMessageDetails;

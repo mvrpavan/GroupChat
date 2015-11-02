@@ -9,9 +9,11 @@
 
     <TextView
         android:text="Username"
+        android:drawableLeft="@drawable/ic_action_user"
         android:id="@+id/tvUsernameListView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"/>
 
     <TextView
         android:text="Message"
