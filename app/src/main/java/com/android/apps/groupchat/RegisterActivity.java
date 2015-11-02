@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class RegisterActivity extends Activity {
 
     EditText editTextUsername, editTextPassword, editTextEmailAddress;
     Button btnSignUp;
+    View viewLoadingPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class RegisterActivity extends Activity {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextEmailAddress = (EditText) findViewById(R.id.editTextEMail);
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        viewLoadingPanel = findViewById(R.id.loadingPanelRegister);
     }
 
     private void SetControlDefaults() {
@@ -51,6 +54,8 @@ public class RegisterActivity extends Activity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CommonFunctions.disableEnableControls(false, (ViewGroup) findViewById(R.id.relativelayoutRegister));
+                viewLoadingPanel.setVisibility(View.VISIBLE);
                 //Create new User
                 ParseUser parseUser = new ParseUser();
                 parseUser.setUsername(editTextUsername.getText().toString());
@@ -67,6 +72,8 @@ public class RegisterActivity extends Activity {
                             startActivity(takeToLoginActivity);
                         }
                         else {
+                            CommonFunctions.disableEnableControls(true, (ViewGroup) findViewById(R.id.relativelayoutRegister));
+                            viewLoadingPanel.setVisibility(View.GONE);
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterActivity.this);
                             alertDialogBuilder.setTitle("Error");
                             alertDialogBuilder.setMessage(e.getMessage().toUpperCase());

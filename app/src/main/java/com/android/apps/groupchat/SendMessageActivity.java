@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class SendMessageActivity extends Activity {
 
     EditText editTextMessage;
     Button btnSendMessage, btnCancel;
+    View viewLoadingPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SendMessageActivity extends Activity {
         editTextMessage = (EditText) findViewById(R.id.editTextMessage);
         btnSendMessage = (Button) findViewById(R.id.btnSendMessage);
         btnCancel = (Button) findViewById(R.id.btnCancel);
+        viewLoadingPanel = findViewById(R.id.relativelayoutSendMessage);
 
         btnSendMessage.setEnabled(false);
 
@@ -65,6 +68,9 @@ public class SendMessageActivity extends Activity {
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CommonFunctions.disableEnableControls(false, (ViewGroup) findViewById(R.id.relativelayoutSendMessage));
+                viewLoadingPanel.setVisibility(View.VISIBLE);
+
                 ParseObject objParseObject = ParseObject.create("GroupMessages");
                 objParseObject.put("Username", ParseUser.getCurrentUser().getUsername());
                 objParseObject.put("Message", editTextMessage.getText().toString());
@@ -79,6 +85,9 @@ public class SendMessageActivity extends Activity {
                             finish();
                         }
                         else {
+                            CommonFunctions.disableEnableControls(true, (ViewGroup) findViewById(R.id.relativelayoutSendMessage));
+                            viewLoadingPanel.setVisibility(View.GONE);
+
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SendMessageActivity.this);
                             alertDialogBuilder.setTitle("Error");
                             alertDialogBuilder.setMessage(e.getMessage().toUpperCase());

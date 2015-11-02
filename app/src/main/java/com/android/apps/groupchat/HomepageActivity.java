@@ -120,6 +120,12 @@ public class HomepageActivity extends Activity {
                 startActivity(takeToSendMessageActivity);
                 finish();
                 break;
+            case R.id.menuitemReload:
+                Intent reloadActivity = new Intent(HomepageActivity.this, HomepageActivity.class);
+                startActivity(reloadActivity);
+                finish();
+                Toast.makeText(HomepageActivity.this, "Messages Reloaded", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.menuitemLogout:
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
@@ -171,6 +177,8 @@ class MessagesAdapter extends ArrayAdapter<ParseObject> {
             objMessageViewHolder = new MessageViewHolder();
             objMessageViewHolder.Username = (TextView) convertView.findViewById(R.id.tvUsernameListView);
             objMessageViewHolder.Message = (TextView) convertView.findViewById(R.id.tvMessageListView);
+
+            convertView.setTag(objMessageViewHolder);
         }
         else {
             objMessageViewHolder = (MessageViewHolder) convertView.getTag();
