@@ -17,8 +17,10 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.SendCallback;
 
 public class SendMessageActivity extends Activity {
 
@@ -79,6 +81,18 @@ public class SendMessageActivity extends Activity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
+                            ParsePush push = new ParsePush();
+                            push.setChannel("GroupChatMessagesChannel");
+                            push.setMessage(ParseUser.getCurrentUser().getUsername() + ": " + editTextMessage.getText().toString());
+                            push.sendInBackground(new SendCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e != null) {
+                                        Toast.makeText(SendMessageActivity.this, "Error:" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+
                             Toast.makeText(SendMessageActivity.this, "Success", Toast.LENGTH_SHORT).show();
                             Intent takeToHomepageActivity = new Intent(SendMessageActivity.this, HomepageActivity.class);
                             startActivity(takeToHomepageActivity);
