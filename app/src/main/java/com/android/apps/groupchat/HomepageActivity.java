@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -55,6 +56,9 @@ public class HomepageActivity extends Activity {
             return;
         }
         else {
+            ParseInstallation.getCurrentInstallation().put("user", ParseUser.getCurrentUser().getUsername());
+            ParseInstallation.getCurrentInstallation().saveInBackground();
+
             currentUsername = currentUser.getUsername();
             listViewMessages = (ListView) findViewById(R.id.listViewMessages);
             viewLoadingPanel = findViewById(R.id.loadingPanelHomepage);
