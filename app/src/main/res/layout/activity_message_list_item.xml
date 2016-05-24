@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
     tools:context="com.android.apps.groupchat.MessageListItemActivity">
-
+<LinearLayout
+    android:id="@+id/linearlayoutListView"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
     <TextView
         android:text="Username"
-        android:drawableLeft="@drawable/ic_action_user"
+        android:drawableStart="@drawable/ic_action_user"
         android:id="@+id/tvUsernameListView"
-        android:layout_width="fill_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"/>
-
+        android:gravity="center_vertical"
+        android:textStyle="normal"
+        android:layout_weight="2"
+        android:textSize="6pt"/>
+    <TextView
+        android:text=""
+        android:id="@+id/tvSentDateListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="4pt"
+        android:layout_weight="1"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="50dp"/>
+    </LinearLayout>
     <TextView
         android:text="Message"
         android:id="@+id/tvMessageListView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUsernameListView"
-        android:layout_marginTop="5dp"
+        android:layout_below="@+id/linearlayoutListView"
         android:maxEms="30"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textSize="15sp" />
-
+        android:textSize="7pt"
+        android:layout_marginStart="10dp"/>
 </RelativeLayout>

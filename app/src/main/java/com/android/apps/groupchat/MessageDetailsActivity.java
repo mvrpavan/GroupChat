@@ -36,6 +36,7 @@ public class MessageDetailsActivity extends Activity {
         viewLoadingPanel = findViewById(R.id.loadingPanelMessageDetails);
 
         String ObjectID = getIntent().getStringExtra("ObjectID");
+        //String Message = getIntent().getStringExtra("Message");
 
         CommonFunctions.disableEnableControls(false, (ViewGroup) findViewById(R.id.relativelayoutMessageDetails));
         viewLoadingPanel.setVisibility(View.VISIBLE);
