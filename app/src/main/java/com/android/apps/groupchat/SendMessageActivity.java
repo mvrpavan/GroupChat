@@ -83,7 +83,7 @@ public class SendMessageActivity extends Activity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            ParsePush push = new ParsePush();
+                            /*ParsePush push = new ParsePush();
                             //push.setChannel("GroupChatMessagesChannel");
                             ParseQuery objQuery = ParseInstallation.getQuery();
                             objQuery.whereNotEqualTo("installationId", ParseInstallation.getCurrentInstallation().getInstallationId());
@@ -96,7 +96,7 @@ public class SendMessageActivity extends Activity {
                                         Toast.makeText(SendMessageActivity.this, "Error:" + e.getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 }
-                            });
+                            });*/
 
                             Toast.makeText(SendMessageActivity.this, "Success", Toast.LENGTH_SHORT).show();
                             Intent takeToHomepageActivity = new Intent(SendMessageActivity.this, HomepageActivity.class);

@@ -1,17 +1,11 @@
 package com.android.apps.groupchat;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.inputmethodservice.Keyboard;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,28 +15,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
-import com.parse.ParsePush;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SendCallback;
 
-import org.w3c.dom.Text;
-
-import java.io.StringReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomepageActivity extends Activity {
@@ -140,7 +125,7 @@ public class HomepageActivity extends Activity {
                             objMessagesAdapter = ParseDatastore.objMessagesAdapter;
                             listMessages = ParseDatastore.listMessages;
 
-                            ParsePush push = new ParsePush();
+                            /*ParsePush push = new ParsePush();
                             ParseQuery objQuery = ParseInstallation.getQuery();
                             objQuery.whereNotEqualTo("installationId", ParseInstallation.getCurrentInstallation().getInstallationId());
                             push.setQuery(objQuery);
@@ -152,7 +137,8 @@ public class HomepageActivity extends Activity {
                                         Toast.makeText(HomepageActivity.this, "Error:" + e.getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 }
-                            });
+                            });*/
+                            Toast.makeText(HomepageActivity.this, "Success", Toast.LENGTH_SHORT).show();
                         } else {
                             AlertDialogs.showErrorDialog(HomepageActivity.this, e);
                         }
